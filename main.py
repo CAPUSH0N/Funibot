@@ -50,7 +50,38 @@ def holidays_button(message):
         btn2=types.KeyboardButton('как мы провели зимние каникулы')
         mark.add(btn, btn2)
         bot.send_message(message.chat.id, 'мы вернулись в главное меню', reply_markup=mark)
+    
+    if message.text=='игра с вугаром':
+         mark=types.ReplyKeyboardMarkup(resize_keyboard=True)
+         btn=types.KeyboardButton('камень ножницы бумага')
+         mark.add(btn)
+         bot.send_message(message.chat.id, 'во что сыграем?', reply_markup=mark)
+    elif message.text =='камень ножницы бумага':
+         mark=types.ReplyKeyboardMarkup(resize_keyboard=True)
+         btn=types.KeyboardButton('камень')
+         btn2=types.KeyboardButton('ножницы')
+         btn3=types.KeyboardButton('бумага')
+         btn4=types.KeyboardButton('Вернуться в меню')
+         mark.add(btn, btn2, btn3, btn4)
+         bot.send_message(message.chat.id, 'ОТЛИЧНО! давайте сыграем в камень ножницы бумага', reply_markup=mark)
+    elif message.text == 'ножницы':
+        bot.send_message(message.chat.id, 'камень')
+        bot.send_message(message.chat.id, 'Я ВЫЙГРАЛ!')
+    elif message.text == 'бумага':
+        bot.send_message(message.chat.id, "ножницы")
+        bot.send_message(message.chat.id, "Я ВЫЙГРАЛ!")
+    elif message.text == 'камень':
+        bot.send_message(message.chat.id, "бумага")
+        bot.send_message(message.chat.id, "Я ВЫЙГРАЛ!")
+    elif message.text == 'Вернуться в меню':
+        mark=types.ReplyKeyboardMarkup(resize_keyboard=True)
+        btn=types.KeyboardButton('игра с вугаром')
+        btn2=types.KeyboardButton('как мы провели зимние каникулы')
+        mark.add(btn, btn2)
         
+
+
+    
 
         
     
