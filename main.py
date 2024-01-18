@@ -14,7 +14,8 @@ def menu(message):
     btn2=types.KeyboardButton('как мы провели зимние каникулы')
     btn3=types.KeyboardButton('комплимент себе')
     btn4=types.KeyboardButton('замечание самому себе')
-    mark.add(btn, btn2, btn3, btn4)
+    btn5=types.KeyboardButton('магическая Х###Я')
+    mark.add(btn, btn2, btn3, btn4, btn5)
     bot.send_message(message.chat.id, 'выберите категорию', reply_markup=mark)
 @bot.message_handler(content_types='text')
 def holidays_button(message):
@@ -53,7 +54,8 @@ def holidays_button(message):
         btn2=types.KeyboardButton('как мы провели зимние каникулы')
         btn3=types.KeyboardButton('комплимент себе')
         btn4=types.KeyboardButton('замечание самому себе')
-        mark.add(btn, btn2, btn3, btn4)
+        btn5=types.KeyboardButton('магическая Х###Я')
+        mark.add(btn, btn2, btn3, btn4, btn5)
         bot.send_message(message.chat.id, 'мы вернулись в главное меню', reply_markup=mark)
     
     if message.text=='игра с вугаром':
@@ -84,7 +86,8 @@ def holidays_button(message):
         btn2=types.KeyboardButton('как мы провели зимние каникулы')
         btn3=types.KeyboardButton('комплимент себе')
         btn4=types.KeyboardButton('замечание самому себе')
-        mark.add(btn, btn2, btn3, btn4)
+        btn5=types.KeyboardButton('магическая Х###Я')
+        mark.add(btn, btn2, btn3, btn4, btn5)
     if message.text == 'комплимент себе':
        like_vugar=[ 'Вугар, ты очень терпеливый человек',
  'Твоя улыбка всегда разносит серость дня',
@@ -140,6 +143,51 @@ def holidays_button(message):
  'Вугар, почему ты всегда таким закрытым? Будь более общительным']
         n=choice(unlike_vugar)
         bot.send_message(message.chat.id, n)
+    elif message.text == 'магическая Х###Я':
+        mark=types.ReplyKeyboardMarkup(resize_keyboard=True)
+        btn=types.KeyboardButton('шар судьбы')
+        btn3=types.KeyboardButton('Вернуться в меню')
+        mark.add(btn, btn3)
+        bot.send_message(message.chat.id, 'Выберите категорию', reply_markup=mark)
+    elif message.text == 'шар судьбы':
+         mark=types.ReplyKeyboardMarkup(resize_keyboard=True)
+         btn=types.KeyboardButton('Вернуться в меню')
+         mark.add(btn)
+         bot.send_message(message.chat.id, 'Задайте свой вопрос', reply_markup=mark)
+    elif message.text != '' and message.text !='Вернуться в меню':
+        ball_fate=['Шансы хорошие',
+'Без сомнений',
+'Не могу сказать',
+'Думаю да',
+'Не сейчас',
+'Есть сомнения',
+'Точно нет',
+'Да',
+'Духи говорят нет',
+'Думаю нет',
+'Точно да',
+'Мало шансов',
+'Духи говорят да',
+'Спросите позже',
+'Неясно',
+'Возможно',
+'Очень вероятно', 
+'Спросите снова',
+'Непонятно']
+        n=choice(ball_fate)
+        bot.send_message(message.chat.id, n)
+    elif message.text == 'Вернуться в меню':
+        mark=types.ReplyKeyboardMarkup(resize_keyboard=True)
+        btn=types.KeyboardButton('игра с вугаром')
+        btn2=types.KeyboardButton('как мы провели зимние каникулы')
+        btn3=types.KeyboardButton('комплимент себе')
+        btn4=types.KeyboardButton('замечание самому себе')
+        btn5=types.KeyboardButton('магическая Х###Я')
+        mark.add(btn, btn2, btn3, btn4, btn5)
+
+        
+    
+
 
     
 
